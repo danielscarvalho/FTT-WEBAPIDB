@@ -53,6 +53,8 @@ public class ClientDao implements Dao<Client> {
             preparedStatement.setString(4, client.getPhone());
             preparedStatement.setString(5, client.getCellPhone());
             //Data do Java tem timezone, o BD n�o tem!!!
+              // java.sql.Date -> Não tem timezone
+              // java.util.Date -> Tem timezone
             preparedStatement.setDate(6, (java.sql.Date) client.getDob());
             preparedStatement.setFloat(7, client.getBudget());
             preparedStatement.setFloat(8, client.getLimit());

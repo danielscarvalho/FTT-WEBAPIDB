@@ -48,6 +48,8 @@ public class ClientApi extends HttpServlet {
 	protected void doGet(HttpServletRequest request, 
 			             HttpServletResponse response) throws ServletException, IOException {
 		
+
+		
 		// TODO Auto-generated method stub
 		Client c = new Client();
 		
@@ -70,7 +72,14 @@ public class ClientApi extends HttpServlet {
 		clientDao.insert(c);
 
         //TODO: Gerenciar e propagar erro...		
-		response.getWriter().append("Cliente Criado...");
+		
+		//System.out.println(request.getContentLength());
+		
+		if (request.getContentLength() < 1) {
+			response.getWriter().append("{\"count\":" + clientDao.count() + "}");
+		} else {
+			response.getWriter().append("Cliente Criado...");
+		} //if
 	}
 
 	/**

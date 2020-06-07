@@ -197,5 +197,53 @@ public class ClientDao implements Dao<Client> {
         return cList;
 		
 	} //findAll
+	
+	public int count() {
+		
+		int count = -1;
+		
+		try {
+			
+            PreparedStatement preparedStatement = connection.
+                    prepareStatement("SELECT COUNT(1) QTD FROM CLIENT");
+            
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt("QTD");
+                
+            } //if
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } //try
+
+		return count;
+		
+	} //count
+	
+	public int maxId() {
+		
+		int maxId = -1;
+		
+		try {
+			
+            PreparedStatement preparedStatement = connection.
+                    prepareStatement("SELECT MAX(ID) MAX_ID FROM CLIENT");
+            
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                maxId = rs.getInt("MAX_ID");
+                
+            } //if
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } //try
+
+		return maxId;
+		
+	} //maxId
 
 } //ClientDao

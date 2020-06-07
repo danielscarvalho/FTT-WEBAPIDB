@@ -1,6 +1,8 @@
 package ftt.ec.webapi;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,8 +50,8 @@ public class ClientApi extends HttpServlet {
 	protected void doGet(HttpServletRequest request, 
 			             HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("Client get - " + new Date());
 
-		
 		// TODO Auto-generated method stub
 		Client c = new Client();
 		
@@ -80,28 +82,35 @@ public class ClientApi extends HttpServlet {
 		} else {
 			response.getWriter().append("Cliente Criado...");
 		} //if
-	}
+	} //doGet
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		System.out.println("Client post - " + new Date());
+		
 		doGet(request, response);
-	}
+	} //doPost
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	}
+		System.out.println("Client put - " + new Date());
+
+	} //doPut
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, 
 			                HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("Client delete - " + new Date());
 		
 		Client c = new Client();
 		
@@ -119,6 +128,6 @@ public class ClientApi extends HttpServlet {
 		//TODO: Implementar processamento de erro apropriado...
 		response.getWriter().append("Cliente Apagado...");
 		
-	}
+	} //doDelete
 
 }

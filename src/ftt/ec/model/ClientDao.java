@@ -44,7 +44,7 @@ public class ClientDao implements Dao<Client> {
 
 		try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO CLIENT (NAME, EMAIL, ADDRESS, PHONE, CELL_PHONE, DOB, BUDGET, LIMIT, STATUS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    .prepareStatement("INSERT INTO FTT.CLIENT (NAME, EMAIL, ADDRESS, PHONE, CELL_PHONE, DOB, BUDGETS, LIMITS, STATUS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             // Parameters start with 1
             preparedStatement.setString(1, client.getName());
@@ -75,7 +75,7 @@ public class ClientDao implements Dao<Client> {
 		try {
 			//Java 13 - """   """
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE CLIENTS SET NAME=?, " 
+                    .prepareStatement("UPDATE FTT.CLIENTS SET NAME=?, " 
                     		                           + "EMAIL=?, "
                     		                           + "ADRESS=?, "
                     		                           + "PHONE=?, "
@@ -114,7 +114,7 @@ public class ClientDao implements Dao<Client> {
 		try {
             
         	PreparedStatement preparedStatement = connection
-                    .prepareStatement("DELETE FROM CLIENT WHERE ID=?");
+                    .prepareStatement("DELETE FROM FTT.CLIENT WHERE ID=?");
             
             // Parameters start with 1
             preparedStatement.setInt(1, client.getId());
@@ -133,7 +133,7 @@ public class ClientDao implements Dao<Client> {
         
     	try {
             PreparedStatement preparedStatement = connection.
-                    prepareStatement("SELECT * FROM CLIENT WHERE ID=?");
+                    prepareStatement("SELECT * FROM FTT.CLIENT WHERE ID=?");
             
             preparedStatement.setLong(1, client.getId());
             ResultSet rs = preparedStatement.executeQuery();
@@ -168,7 +168,7 @@ public class ClientDao implements Dao<Client> {
         	
             Statement statement = connection.createStatement();
             
-            ResultSet rs = statement.executeQuery("SELECT * FROM CLIENT");
+            ResultSet rs = statement.executeQuery("SELECT * FROM FTT.CLIENT");
             
             while (rs.next()) {
                 
@@ -205,7 +205,7 @@ public class ClientDao implements Dao<Client> {
 		try {
 			
             PreparedStatement preparedStatement = connection.
-                    prepareStatement("SELECT COUNT(1) QTD FROM CLIENT");
+                    prepareStatement("SELECT COUNT(1) QTD FROM FTT.CLIENT");
             
             ResultSet rs = preparedStatement.executeQuery();
 

@@ -2,18 +2,20 @@ package ftt.ec.model;
 
 import java.util.ArrayList;
 
-// Refer�ncia: https://cursos.alura.com.br/forum/topico-dao-generica-61881
+// Referência: https://cursos.alura.com.br/forum/topico-dao-generica-61881
+// Referência: https://www.guj.com.br/t/generic-dao/105808
 
-public interface Dao {
+//Usando generics: https://www.oracle.com/technical-resources/articles/java/juneau-generics.html
+public interface Dao<DomainObject> {
 	
-	public void insert(Object obj);
+	public  void insert(DomainObject obj);
 	
-	public void update(Object obj);
+	public  void update(DomainObject obj);
 	
-	public void delete(Object obj);
+	public  void delete(DomainObject obj);
 	
-	public Object find(Object obj);
+	public  Object find(DomainObject obj);
 	
-	public ArrayList<Object> findAll(Object obj);
+	public  ArrayList<DomainObject> findAll(DomainObject obj);
 	
 }

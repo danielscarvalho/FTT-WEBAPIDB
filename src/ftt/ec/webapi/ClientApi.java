@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ftt.ec.beans.Client;
+import ftt.ec.model.ClientDao;
+
 /**
  * Servlet implementation class ClientApi
  */
@@ -40,9 +43,32 @@ public class ClientApi extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, 
+			             HttpServletResponse response) throws ServletException, IOException {
+		
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Client c = new Client();
+		
+		// Note que getParamtere retorna string, 
+		// a conversão é feita na classe Client (seters)
+		
+		c.setId(request.getParameter("ID"));
+		c.setName(request.getParameter("NAME"));
+		c.setEmail(request.getParameter("EMAIL"));
+		c.setAddress(request.getParameter("ADDRESS"));
+		c.setPhone(request.getParameter("PHONE"));
+		c.setCellPhone(request.getParameter("CELLPHONE"));
+		c.setDob(request.getParameter("DOB"));
+		c.setBudget(request.getParameter("BUDGET"));
+		c.setLimit(request.getParameter("LIMIT"));
+		c.setStatus(request.getParameter("STATUS"));
+		
+		ClientDao clientDao = new ClientDao();
+		
+		clientDao.insert(c);
+
+        //TODO: Gerenciar e propagar erro...		
+		response.getWriter().append("Cliente Criado...");
 	}
 
 	/**
@@ -65,6 +91,22 @@ public class ClientApi extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		// TODO Auto-generated method stub
+		Client c = new Client();
+		
+		// Note que getParamtere retorna string, 
+		// a conversão é feita na classe Client (seters)
+		
+		c.setId(request.getParameter("ID"));
+		
+		ClientDao clientDao = new ClientDao();
+		
+		clientDao.delete(c);
+		
+		//TODO: Implementar processamento de erro apropriado...
+		response.getWriter().append("Cliente Apagado...");
+		
 	}
 
 }

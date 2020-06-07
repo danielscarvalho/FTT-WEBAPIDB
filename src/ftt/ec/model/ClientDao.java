@@ -16,7 +16,7 @@ import ftt.ec.model.DbUtil;
 /*
  * TODO 1. DONE - Criar tabela no banco de dados MySQL
  * TODO 2. DONE - Criar JavaBean para cada tabela do banco de dados MySQL
- * TODO 3. DONE - Criar a conexão com o Banco de Dados (connection) DbUtil
+ * TODO 3. DONE - Criar a conexï¿½o com o Banco de Dados (connection) DbUtil
  * TODO 4. DONE - Criar a interface Dao - Design Pattern - SQL para objetos vice-versa
  * TODO 5. DONE - Criar o Dao para a tabela "Client"
  * TODO 6. Criar WEB API CRUD para a tabela "Client"
@@ -25,11 +25,12 @@ import ftt.ec.model.DbUtil;
  * 
  * Para N1 2B LP3 - Criar 5 tabelas...
  * Testar com Postman
+ * Equipe de 1, 2 ou 3 alunos
  * 
  * 
  */
 
-public abstract class ClientDao implements Dao {
+public class ClientDao implements Dao<Client> {
 	
 	private Connection connection;
 	
@@ -38,7 +39,7 @@ public abstract class ClientDao implements Dao {
 		this.connection = DbUtil.getConnection();
 	}
 
-	//@Override
+	@Override
 	public void insert(Client client) {
 
 		try {
@@ -51,7 +52,7 @@ public abstract class ClientDao implements Dao {
             preparedStatement.setString(3, client.getAddress());
             preparedStatement.setString(4, client.getPhone());
             preparedStatement.setString(5, client.getCellPhone());
-            //Data do Java tem timezone, o BD não tem!!!
+            //Data do Java tem timezone, o BD nï¿½o tem!!!
             preparedStatement.setDate(6, (java.sql.Date) client.getDob());
             preparedStatement.setFloat(7, client.getBudget());
             preparedStatement.setFloat(8, client.getLimit());
@@ -66,7 +67,7 @@ public abstract class ClientDao implements Dao {
 		
 	}
 
-	//@Override
+	@Override
 	public void update(Client client) {
 		
 		try {
@@ -105,7 +106,7 @@ public abstract class ClientDao implements Dao {
 		
 	} //update
 
-	//@verride
+	@Override
 	public void delete(Client client) {
 
 		try {
@@ -123,7 +124,7 @@ public abstract class ClientDao implements Dao {
 		
 	} //delete 
 
-	//@Override
+	@Override
 	public Object find(Client client) {
 		
 		Client c = new Client();
@@ -155,9 +156,9 @@ public abstract class ClientDao implements Dao {
 		
 	} //find
 
-	//@Override
+	@Override
 	public ArrayList<Client> findAll(Client client) {
-		//Ajustar para enviar os dados de forma paginada, usar função SQL "LIMIT" do MySQL
+		//Ajustar para enviar os dados de forma paginada, usar funï¿½ï¿½o SQL "LIMIT" do MySQL
 		
 		ArrayList<Client> cList = new ArrayList<Client>();
         

@@ -1,0 +1,4 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/ftt&serverTimezone=GMT-3
+user=ftt
+password=ftt@2020

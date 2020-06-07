@@ -14,6 +14,8 @@ import ftt.ec.model.ClientDao;
 /**
  * Servlet implementation class ClientApi
  */
+
+
 @WebServlet("/ClientApi")
 public class ClientApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -89,16 +91,17 @@ public class ClientApi extends HttpServlet {
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doDelete(HttpServletRequest request, 
+			                HttpServletResponse response) throws ServletException, IOException {
 		
-		// TODO Auto-generated method stub
 		Client c = new Client();
 		
 		// Note que getParamtere retorna string, 
 		// a conversão é feita na classe Client (seters)
 		
 		c.setId(request.getParameter("ID"));
+		
+		System.out.println("Delete: " + c.getId());
 		
 		ClientDao clientDao = new ClientDao();
 		

@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Properties;
 
 //Reference: https://github.com/danielscarvalho/FTT-PEOPLE-WEB-DB
@@ -19,21 +20,31 @@ public class DbUtil {
             return connection;
         else {
             try {
-            	//Connection pool!
-                
+            	//Option, use Tomcat db connection pool!
+            	
             	Properties prop = new Properties();
+            	
+            	//Properie file at: WebContent/WEB-INF/classes
                 InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.resources");
-                prop.load(inputStream);
-                
-                String driver = prop.getProperty("driver");
-                String url = prop.getProperty("url");
-                String user = prop.getProperty("user");
-                String password = prop.getProperty("password");
-                
-                Class.forName(driver); //Verifica se o driver do BD está disponível (JDBC)
+
+                String driver, url, user, password;              
+
+				prop.load(inputStream);
+     
+				driver = prop.getProperty("driver");
+	            url = prop.getProperty("url");
+	            user = prop.getProperty("user");
+	            password = prop.getProperty("password");
+	                
+	            //Log
+				System.out.println(driver + " - " + url + " - " + new Date());
+			                        
+                Class.forName(driver); //Verifica se o driver do BD esta disponivel (JDBC) - Legado
                 
                 connection = DriverManager.getConnection(url, user, password);
             
+                System.out.println(connection);
+                
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {

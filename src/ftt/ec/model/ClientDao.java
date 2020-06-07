@@ -20,8 +20,8 @@ import ftt.ec.model.DbUtil;
  * TODO 4. DONE - Criar a interface Dao - Design Pattern - SQL para objetos vice-versa
  * TODO 5. DONE - Criar o Dao para a tabela "Client"
  * TODO 6. Criar WEB API CRUD para a tabela "Client"
- * TODO 7. Criar pasta lib e importar driver JDBC para banco de dados (.jar)
- * TODO 8. Importar .jar do JDBC no Java Build Path
+ * TODO 7. DONE - Criar pasta libs e importar driver JDBC para banco de dados (.jar)
+ * TODO 8. DONE - Importar .jar do JDBC no Java Build Path
  * 
  * Para N1 2B LP3 - Criar 5 tabelas...
  * Testar com Postman
@@ -127,7 +127,7 @@ public class ClientDao implements Dao<Client> {
 	} //delete 
 
 	@Override
-	public Object find(Client client) {
+	public Client find(Client client) {
 		
 		Client c = new Client();
         

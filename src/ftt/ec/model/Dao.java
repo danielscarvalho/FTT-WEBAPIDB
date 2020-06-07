@@ -14,7 +14,7 @@ public interface Dao<DomainObject> {
 	
 	public  void delete(DomainObject obj);
 	
-	public  Object find(DomainObject obj);
+	public  DomainObject find(DomainObject obj);
 	
 	public  ArrayList<DomainObject> findAll(DomainObject obj);
 	

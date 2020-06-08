@@ -2,4 +2,4 @@ driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://localhost:3306/FTT
 url2=jdbc:mysql://34.95.129.126/FTT
 user=ftt
-password=Ftt@2020
+password=ftt@2020

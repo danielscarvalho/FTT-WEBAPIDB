@@ -73,7 +73,7 @@ public class ClientDao implements Dao<Client> {
 	public void update(Client client) {
 		
 		try {
-			//Java 13 - """   """
+			//Java 13 - text block -  """   """
             PreparedStatement preparedStatement = connection
                     .prepareStatement("UPDATE FTT.CLIENTS SET NAME=?, " 
                     		                           + "EMAIL=?, "

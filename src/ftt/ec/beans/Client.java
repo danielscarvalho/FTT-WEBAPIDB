@@ -10,22 +10,22 @@ import java.util.Date;
 
 public class Client {
 	
-	private int Id;
+	private int id;
 	private String name;
 	private String email;
 	private String address;
 	private String phone;
 	private String cellPhone;
-	private Date Dob; //Date of Birth
+	private Date dob; //Date of Birth
 	private float budget;
 	private float limit;
 	private String status;
 	
 	public int getId() {
-		return Id;
+		return this.id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	public void setId(String id) {
 		if (id == null) {
@@ -35,34 +35,34 @@ public class Client {
 		}
 	}
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getCellPhone() {
-		return cellPhone;
+		return this.cellPhone;
 	}
 	public void setCellPhone(String cellPhone) {
 		this.cellPhone = cellPhone;
 	}
 	public Date getDob() {
-		return Dob;
+		return this.dob;
 	}
 	public void setDob(Date dob) {
-		Dob = dob;
+		this.dob = dob;
 	}
 	public void setDob(String dob) {
 		try { //Conversão de data pode dar erro!!!
@@ -73,7 +73,7 @@ public class Client {
 	}
 	
 	public float getBudget() {
-		return budget;
+		return this.budget;
 	}
 	public void setBudget(float budget) {
 		this.budget = budget;
@@ -86,7 +86,7 @@ public class Client {
 		} //if
 	}
 	public float getLimit() {
-		return limit;
+		return this.limit;
 	}
 	public void setLimit(float limit) {
 		this.limit = limit;

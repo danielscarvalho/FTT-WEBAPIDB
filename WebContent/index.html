@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+	font-family: Verdana, Arial, sans-serif;
+}
+</style>
+<title>FTT - User Form</title>
+</head>
+<body>
+<h1>FTT - User Form</h1>
+<form method="POST" action="/FTT-WEBAPIDB/ClientApi">
+  <fieldset>
+    <legend>User info:</legend>
+<p><label>ID</label><input type="number" id="ID" name="ID" required></p>
+<p><label>Name</label><input type="text"  id="NAME" name="NAME" required></p>
+<p><label>E-Mail</label><input type="email"  id="EMAIL" name="EMAIL" required></p>
+<p><label>Color</label><input type="color"  id="userColor" name="userColor" required></p>
+<p><label>DOB</label><input type="date"  id="DOB" name="DOB" required></p>
+<p><label>Address</label><input type="text"  id="ADDRESS" name="ADDRESS" required></p>
+<p><label>Budget</label><input type="number"  id="BUDGET" name="BUDGET" required></p>
+<p><label>Limit</label><input type="number"  id="LIMIT" name="LIMIT" required></p>
+<p><label>Status</label><input type="text"  id="STATUS" name="STATUS" required></p>
+<p>
+<label for="userCar">Choose a car:</label>
+<select id="userCar" name="userCar">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select>
+</p>
+
+<input type="submit">
+</fieldset>
+</form>
+
+</body>
+</html>

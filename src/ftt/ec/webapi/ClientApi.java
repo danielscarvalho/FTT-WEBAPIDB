@@ -18,7 +18,7 @@ import ftt.ec.model.ClientDao;
  */
 
 
-@WebServlet("/ClientApi")
+@WebServlet("/ClientApi/*")
 public class ClientApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
